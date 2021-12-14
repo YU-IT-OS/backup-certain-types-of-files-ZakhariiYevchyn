@@ -1,17 +1,25 @@
 #!/bin/bash
-  
-source=/home/zakhariiyevchyn/files/documents/source
-destination=/home/zakhariiyevchyn/destination
-for file in $(find $source -print "%P\n") ; do
-        if [ -a $destination/$file ] ; then
-                if [$source/$file -nt $destination/$file ] ; then
-                        echo "Newer file detected, copying..."
-                        cp -r $source/$file $destination/$file
-                else
-                        echo "File $file exists, skipping."
-                fi
-        else
-                echo "$file is being copied over to $destination"
-                cp -r $source/$file $dest/$file
-        fi
-done
+
+if [ -z $3 ]
+then
+        echo "Usage: script [file extension] [target directory] [backup directory] 
+        Example: script .text /home/arnold /backup 
+        this is backs up files from a certain directory to anohter"
+
+exit 0;
+fi
+
+fileExtention="$1"
+targetDir="$2"
+destinationDir="$3"
+
+echo "file extention is: $fileExtention"
+echo "target dir is: $targetDir"
+echo "backup directory is: $destinationDir"
+
+if [ ! -d "$targetDir" ]
+
+then
+        echo "$targetDir" 
+        exit 0;
+fi
