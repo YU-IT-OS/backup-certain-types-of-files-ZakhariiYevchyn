@@ -1,7 +1,7 @@
 #!/bin/bash
   
-source=/home/zakhariiyevchyn/source/files/documents
-destination=/home/xakhariiyevchyn
+source=/home/zakhariiyevchyn/files/documents/source
+destination=/home/zakhariiyevchyn/destination
 for file in $(find $source -print "%P\n") ; do
         if [ -a $destination/$file ] ; then
                 if [$source/$file -nt $destination/$file ] ; then
