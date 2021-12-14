@@ -3,7 +3,7 @@
 if [ -z $3 ]
 then
         echo "Usage: script [file extension] [target directory] [backup directory] 
-        Example: script .text /home/user /backup 
+        Example: script .text /home/arnold /backup 
         this is backs up files from a certain directory to anohter"
 
 exit 0;
@@ -23,3 +23,5 @@ then
         echo "$targetDir" 
         exit 0;
 fi
+
+find $targetDir -name "*$fileExtention" -exec cp {} $destinationDir ;
